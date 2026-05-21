@@ -82,11 +82,11 @@ function renderTimeline(containerId, items, type) {
 
     wrap.append(
       el("div", { class: "tl-item" },
-        el("div", {},
+        el("time", { class: "tl-period" }, item.period),
+        el("div", { class: "tl-body" },
           el("p", { class: "tl-primary" }, primary),
           el("p", { class: "tl-secondary" }, secondary)
-        ),
-        el("time", { class: "tl-period" }, item.period)
+        )
       )
     );
   });

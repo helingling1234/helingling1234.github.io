@@ -7,7 +7,7 @@
   <title>Lingling He · CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,9 +17,9 @@
     <div class="topbar-inner">
       <a href="#top" class="topbar-name" id="topbar-name"></a>
       <nav class="topbar-nav" aria-label="Page sections">
-        <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
+        <a href="#memberships">Memberships</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
         <a href="#patents">Patents</a>
@@ -29,9 +29,9 @@
       </button>
     </div>
     <nav class="mobile-nav" id="mobile-nav" hidden>
-      <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#experience">Experience</a>
+      <a href="#memberships">Memberships</a>
       <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
       <a href="#patents">Patents</a>
@@ -40,77 +40,80 @@
 
   <span id="top"></span>
 
-  <!-- Hero -->
-  <section class="hero" id="about">
-    <div class="hero-wrap">
-      <div class="hero-left">
+  <!-- Two-column editorial layout -->
+  <div class="layout">
+
+    <!-- Left sidebar (sticky on desktop): identity + contact -->
+    <aside class="sidebar" id="about">
+      <div class="sidebar-inner">
         <div class="avatar" id="avatar">
           <img src="images/lingling.jpg" alt="Lingling He" id="avatar-img"
                onerror="this.style.display='none'">
         </div>
-      </div>
-      <div class="hero-right">
         <h1 id="hero-name"></h1>
-        <p class="hero-title" id="hero-title"></p>
-        <ul class="hero-affiliations" id="hero-affiliations"></ul>
-        <p class="hero-interests-label">Research Interests</p>
-        <p class="hero-interests" id="hero-interests"></p>
-        <div class="hero-actions">
-          <a class="hero-email" id="hero-email" href="#"></a>
-        </div>
+        <p class="sidebar-title" id="hero-title"></p>
+        <div class="sidebar-divider"></div>
+        <ul class="sidebar-affiliations" id="hero-affiliations"></ul>
+        <div class="sidebar-divider"></div>
+        <p class="sidebar-label">Research Interests</p>
+        <p class="sidebar-interests" id="hero-interests"></p>
+        <div class="sidebar-divider"></div>
+        <p class="sidebar-label">Contact</p>
+        <a class="sidebar-email" id="hero-email" href="#"></a>
       </div>
-    </div>
-  </section>
+    </aside>
 
-  <main class="container" id="main">
+    <!-- Right main content -->
+    <main class="content" id="main">
 
-    <!-- Education -->
-    <section class="section" id="education">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline" id="education-list"></div>
-    </section>
+      <section class="section" id="education">
+        <p class="section-num">01</p>
+        <h2 class="section-title">Education</h2>
+        <div class="timeline" id="education-list"></div>
+      </section>
 
-    <!-- Experience -->
-    <section class="section" id="experience">
-      <h2 class="section-title">Professional Experience</h2>
-      <div class="timeline" id="experience-list"></div>
-    </section>
+      <section class="section" id="experience">
+        <p class="section-num">02</p>
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline" id="experience-list"></div>
+      </section>
 
-    <!-- Memberships -->
-    <section class="section" id="memberships">
-      <h2 class="section-title">Academic Memberships</h2>
-      <ul class="membership-list" id="memberships-list"></ul>
-    </section>
+      <section class="section" id="memberships">
+        <p class="section-num">03</p>
+        <h2 class="section-title">Academic Memberships</h2>
+        <ul class="membership-list" id="memberships-list"></ul>
+      </section>
 
-    <!-- Projects -->
-    <section class="section" id="projects">
-      <h2 class="section-title">Research Projects</h2>
-      <h3 class="sub-heading">As Principal Investigator</h3>
-      <div class="project-grid" id="projects-pi"></div>
-      <h3 class="sub-heading">As Co-Investigator</h3>
-      <div class="project-grid" id="projects-co"></div>
-    </section>
+      <section class="section" id="projects">
+        <p class="section-num">04</p>
+        <h2 class="section-title">Research Projects</h2>
+        <h3 class="sub-heading">As Principal Investigator</h3>
+        <div class="project-grid" id="projects-pi"></div>
+        <h3 class="sub-heading">As Co-Investigator</h3>
+        <div class="project-grid" id="projects-co"></div>
+      </section>
 
-    <!-- Publications -->
-    <section class="section" id="publications">
-      <h2 class="section-title">Selected Publications</h2>
-      <h3 class="sub-heading">English</h3>
-      <ol class="pub-list" id="pub-english"></ol>
-      <button class="btn-more" id="pub-toggle" hidden></button>
-      <h3 class="sub-heading" style="margin-top:2rem">Chinese (translated titles)</h3>
-      <ol class="pub-list" id="pub-chinese"></ol>
-    </section>
+      <section class="section" id="publications">
+        <p class="section-num">05</p>
+        <h2 class="section-title">Selected Publications</h2>
+        <h3 class="sub-heading">English</h3>
+        <ol class="pub-list" id="pub-english"></ol>
+        <button class="btn-more" id="pub-toggle" hidden></button>
+        <h3 class="sub-heading" style="margin-top:2.5rem">Chinese (translated titles)</h3>
+        <ol class="pub-list" id="pub-chinese"></ol>
+      </section>
 
-    <!-- Patents -->
-    <section class="section" id="patents">
-      <h2 class="section-title">Patents</h2>
-      <div class="patent-list" id="patents-list"></div>
-    </section>
+      <section class="section" id="patents">
+        <p class="section-num">06</p>
+        <h2 class="section-title">Patents</h2>
+        <div class="patent-list" id="patents-list"></div>
+      </section>
 
-  </main>
+    </main>
+  </div>
 
   <footer class="footer">
-    <div class="container">
+    <div class="footer-inner">
       <span id="footer-name"></span> &nbsp;·&nbsp; <span id="year"></span>
     </div>
   </footer>
