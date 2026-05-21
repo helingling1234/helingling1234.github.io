@@ -12,8 +12,18 @@
   --blue:        #1e40af;
   --blue-light:  #eef2ff;
   --blue-mid:    #c7d2fe;
+  --teal:        #0d9488;
+  --teal-light:  #ccfbf1;
+  --purple:      #7c3aed;
+  --purple-light:#ede9fe;
+  --pink:        #db2777;
+  --pink-light:  #fce7f3;
+  --amber:       #d97706;
+  --amber-light: #fef3c7;
   --green:       #15803d;
-  --green-light: #ecfdf5;
+  --green-light: #d1fae5;
+  --rose:        #e11d48;
+  --rose-light:  #ffe4e6;
   --border:      #e6e3da;
   --border-2:    #d6d3ca;
   --hero-bg-1:   #0b1220;
@@ -118,7 +128,7 @@ ul, ol { list-style: none; }
 }
 .topbar-nav a:hover,
 .topbar-nav a.active {
-  background: var(--blue-light);
+  background: linear-gradient(135deg, var(--blue-light), var(--purple-light));
   color: var(--blue);
   text-decoration: none;
 }
@@ -150,8 +160,10 @@ ul, ol { list-style: none; }
    ================================================================ */
 .hero {
   background:
-    radial-gradient(ellipse at top right, rgba(96,165,250,.15), transparent 60%),
-    radial-gradient(ellipse at bottom left, rgba(168,85,247,.10), transparent 55%),
+    radial-gradient(ellipse at top right, rgba(96,165,250,.28), transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(168,85,247,.20), transparent 55%),
+    radial-gradient(ellipse at 30% 100%, rgba(20,184,166,.16), transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(236,72,153,.12), transparent 50%),
     linear-gradient(135deg, var(--hero-bg-1), var(--hero-bg-2));
   color: var(--hero-text);
   padding: 3.5rem 0 3rem;
@@ -163,8 +175,8 @@ ul, ol { list-style: none; }
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 25% 30%, rgba(96,165,250,.05) 0, transparent 1px),
-    radial-gradient(circle at 75% 65%, rgba(96,165,250,.05) 0, transparent 1px);
+    radial-gradient(circle at 25% 30%, rgba(96,165,250,.06) 0, transparent 1px),
+    radial-gradient(circle at 75% 65%, rgba(168,85,247,.05) 0, transparent 1px);
   background-size: 80px 80px, 100px 100px;
   pointer-events: none;
 }
@@ -234,31 +246,35 @@ ul, ol { list-style: none; }
 
 .hero h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -.01em;
-  margin-bottom: .6rem;
+  margin-bottom: .7rem;
   color: var(--white);
+  background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #c4b5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-title {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #cbd5e1;
-  margin-bottom: 1.4rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 1.5rem;
   letter-spacing: .015em;
 }
 
 .hero-affiliations {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.5rem;
 }
 .hero-affiliations li {
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(248,250,252,.92);
-  padding: .25rem 0;
-  padding-left: 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #f8fafc;
+  padding: .3rem 0;
+  padding-left: 1.2rem;
   position: relative;
   max-width: 46em;
   line-height: 1.55;
@@ -267,28 +283,30 @@ ul, ol { list-style: none; }
   content: "";
   position: absolute;
   left: 0;
-  top: .7em;
-  width: 6px;
-  height: 6px;
+  top: .65em;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--hero-accent);
+  box-shadow: 0 0 8px rgba(96,165,250,.6);
 }
+.hero-affiliations li:nth-child(2)::before { background: #a78bfa; box-shadow: 0 0 8px rgba(167,139,250,.6); }
 
 .hero-interests-label {
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .15em;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--hero-accent);
-  margin-bottom: .35rem;
+  color: #5eead4;
+  margin-bottom: .4rem;
 }
 
 .hero-interests {
-  font-size: 1rem;
-  color: rgba(248,250,252,.92);
+  font-size: 1.05rem;
+  color: #f8fafc;
   letter-spacing: .015em;
-  margin-bottom: 1.6rem;
-  font-weight: 400;
+  margin-bottom: 1.75rem;
+  font-weight: 500;
 }
 
 .hero-actions {
@@ -337,7 +355,7 @@ ul, ol { list-style: none; }
   color: var(--ink);
   margin-bottom: 1.5rem;
   position: relative;
-  padding-bottom: .55rem;
+  padding-bottom: .6rem;
   letter-spacing: -.01em;
 }
 .section-title::after {
@@ -345,11 +363,19 @@ ul, ol { list-style: none; }
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 44px;
+  width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--hero-accent));
   border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
 }
+
+/* Each section gets a different accent color underneath the title */
+#education .section-title::after   { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+#experience .section-title::after  { background: linear-gradient(90deg, #0d9488, #2dd4bf); }
+#memberships .section-title::after { background: linear-gradient(90deg, #d97706, #fbbf24); }
+#projects .section-title::after    { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+#publications .section-title::after{ background: linear-gradient(90deg, #db2777, #f472b6); }
+#patents .section-title::after     { background: linear-gradient(90deg, #e11d48, #fb7185); }
 
 .sub-heading {
   font-size: .72rem;
@@ -419,13 +445,16 @@ ul, ol { list-style: none; }
   content: "";
   position: absolute;
   left: 0;
-  top: 1em;
-  width: 6px;
-  height: 6px;
+  top: .95em;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--blue);
-  opacity: .65;
+  background: var(--amber);
 }
+.membership-list li:nth-child(2n)::before   { background: var(--teal); }
+.membership-list li:nth-child(3n)::before   { background: var(--purple); }
+.membership-list li:nth-child(4n)::before   { background: var(--pink); }
+.membership-list li:nth-child(5n)::before   { background: var(--blue); }
 
 /* ================================================================
    Project cards
@@ -442,15 +471,28 @@ ul, ol { list-style: none; }
   border-radius: var(--radius);
   padding: 1rem 1.15rem;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow .15s, transform .15s, border-color .15s;
+  transition: box-shadow .2s, transform .15s, border-color .15s;
   display: flex;
   flex-direction: column;
   gap: .55rem;
+  position: relative;
+  overflow: hidden;
 }
+.proj-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--purple);
+}
+#projects-pi .proj-card::before { background: linear-gradient(180deg, var(--purple), var(--pink)); }
+#projects-co .proj-card::before { background: linear-gradient(180deg, var(--teal), var(--blue)); }
 .proj-card:hover {
   box-shadow: var(--shadow);
   border-color: var(--border-2);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .proj-title {
@@ -483,8 +525,8 @@ ul, ol { list-style: none; }
   line-height: 1.4;
   margin-left: auto;
 }
-.badge-ongoing  { background: var(--green-light); color: var(--green); border: 1px solid #bbf7d0; }
-.badge-completed { background: var(--bg-alt); color: var(--ink-3); border: 1px solid var(--border); }
+.badge-ongoing  { background: var(--green-light); color: #047857; border: 1px solid #6ee7b7; }
+.badge-completed { background: var(--bg-alt); color: var(--ink-3); border: 1px solid var(--border-2); }
 
 /* ================================================================
    Publications
@@ -507,7 +549,7 @@ ul, ol { list-style: none; }
 .pub-num {
   font-size: .8rem;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--pink);
   font-variant-numeric: tabular-nums;
   padding-top: .25rem;
 }
@@ -623,14 +665,27 @@ ul, ol { list-style: none; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .06em;
-  color: var(--blue);
-  background: var(--blue-light);
-  border: 1px solid var(--blue-mid);
+  color: var(--rose);
+  background: var(--rose-light);
+  border: 1px solid #fda4af;
   border-radius: 4px;
   padding: .25em .65em;
   white-space: nowrap;
   align-self: start;
   margin-top: .15rem;
+}
+.patent-card {
+  position: relative;
+  overflow: hidden;
+}
+.patent-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--rose), var(--amber));
 }
 
 /* ================================================================
