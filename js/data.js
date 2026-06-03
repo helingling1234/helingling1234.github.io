@@ -71,8 +71,8 @@ window.CV_DATA = {
       "首都医科大学附属北京地坛医院 消化内科",
       "美国西奈山伊坎医学院 访问学者"
     ],
-    "researchInterests": "Gastroenterology · Liver fibrosis · Portal hypertension · Glycosylation biology · Artificial Intelligence",
-    "researchInterestsZh": "消化系统疾病 · 肝纤维化 · 门静脉高压 · 糖基化生物学 · 人工智能"
+    "researchInterests": "Gastroenterology · Liver fibrosis · Portal hypertension · Glycobiology · Artificial Intelligence",
+    "researchInterestsZh": "消化系统疾病 · 肝纤维化 · 门静脉高压 · 糖生物学 · 人工智能"
   },
   "education": [
     {
