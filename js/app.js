@@ -185,11 +185,25 @@ function renderPublications(pubs) {
 
   const btn = document.getElementById("pub-toggle");
   if (items.length > PUB_FOLD) {
+    let expanded = false;
+    const setLabel = () => {
+      btn.textContent = expanded
+        ? t("showLess")
+        : t("showMore").replace("{n}", items.length);
+    };
     btn.hidden = false;
-    btn.textContent = t("showMore").replace("{n}", items.length);
+    setLabel();
     btn.onclick = () => {
-      list.querySelectorAll(".pub-item.hidden").forEach(li => li.classList.remove("hidden"));
-      btn.hidden = true;
+      expanded = !expanded;
+      const lis = list.querySelectorAll(".pub-item");
+      lis.forEach((li, idx) => {
+        li.classList.toggle("hidden", !expanded && idx >= PUB_FOLD);
+      });
+      setLabel();
+      if (!expanded) {
+        // Scroll back to publications section so user doesn't lose their place
+        document.getElementById("publications").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     };
   } else {
     btn.hidden = true;
