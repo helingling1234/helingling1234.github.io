@@ -2,7 +2,7 @@ window.CV_DATA = {
   "profile": {
     "name": "Lingling He",
     "nameZh": "何玲玲",
-    "title": "Associate Chief Physician · M.D., Ph.D.",
+    "title": "Associate Chief Physician · MD, PhD",
     "email": "helingling@mail.ccmu.edu.cn",
     "affiliations": [
       "Department of Gastroenterology, Beijing Ditan Hospital, Capital Medical University, Beijing, China",
@@ -13,17 +13,17 @@ window.CV_DATA = {
   "education": [
     {
       "institution": "Capital Medical University",
-      "degree": "Ph.D. in Medicine",
+      "degree": "PhD in Medicine",
       "period": "2016 – 2019"
     },
     {
       "institution": "Capital Medical University",
-      "degree": "M.S. in Medicine",
+      "degree": "MS in Medicine",
       "period": "2013 – 2016"
     },
     {
       "institution": "Xiamen University",
-      "degree": "B.S. in Medicine",
+      "degree": "BS in Medicine",
       "period": "2008 – 2013"
     }
   ],
