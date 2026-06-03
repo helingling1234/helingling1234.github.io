@@ -777,4 +777,77 @@ code {
   .pub-item.hidden { display: grid !important; }
   .section { break-inside: avoid; }
   .proj-card, .patent-card { border: 1pt solid #999; }
+  .lang-toggle { display: none !important; }
+}
+
+/* ================================================================
+   Floating language toggle (top-right circular button)
+   ================================================================ */
+.lang-toggle {
+  position: fixed;
+  top: calc(var(--topbar-h) + 16px);
+  right: 1.5rem;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-2);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(20,17,13,.08), 0 1px 3px rgba(20,17,13,.05);
+  transition: transform .18s ease, box-shadow .18s ease, background .15s, color .15s, border-color .15s;
+}
+.lang-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(30,58,95,.22), 0 2px 5px rgba(20,17,13,.08);
+}
+.lang-toggle:active { transform: translateY(0); }
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* When showing Chinese, slightly enlarge the "中文" or "EN" label */
+.lang-toggle #lang-toggle-text { line-height: 1; }
+
+/* Phone line in sidebar (Chinese mode only) */
+.sidebar-phone {
+  font-family: var(--font-sans);
+  font-size: .82rem;
+  letter-spacing: .04em;
+  color: var(--side-text);
+  margin-top: .4rem;
+}
+
+@media (max-width: 760px) {
+  .lang-toggle {
+    top: calc(var(--topbar-h) + 10px);
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: .7rem;
+  }
+}
+
+/* Chinese mode: switch primary font to system-friendly Chinese fonts.
+   Keep serif feel on hero name. */
+html[lang="zh"] body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+               "Noto Sans CJK SC", var(--font-sans);
+}
+html[lang="zh"] .topbar-name,
+html[lang="zh"] .sidebar h1 {
+  font-family: "Cormorant Garamond", "Noto Serif CJK SC",
+               "Songti SC", "STSong", Georgia, serif;
 }

@@ -1,9 +1,21 @@
 /**
- * CV site — all content loaded from content.json
- * To add / edit items: modify content.json and reload the page.
+ * CV site — bilingual (EN/ZH).
+ * All content from content.json (or window.CV_DATA when opened via file://).
+ *
+ * Language flow:
+ *   - state.lang is "en" or "zh"
+ *   - persisted in localStorage("cv-lang")
+ *   - default: "en" (per user preference)
+ *   - the floating button toggles, then renderAll() re-renders.
  */
 
-const PUB_FOLD = 8; // number of English publications visible before "Show more"
+const PUB_FOLD = 8; // English publications visible before "Show more"
+
+// ── Global state ───────────────────────────────────────────────────────────
+const state = {
+  lang: "en",
+  data: null
+};
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -28,16 +40,43 @@ function getInitials(name) {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
+/** Return localized field. Looks for `${base}Zh` when lang === "zh", else `base`. */
+function L(obj, base) {
+  if (!obj) return "";
+  if (state.lang === "zh") {
+    const zh = obj[base + "Zh"];
+    if (zh != null && zh !== "") return zh;
+  }
+  return obj[base] || "";
+}
+
+/** Localized membership/etc. that uses {en, zh} shape. */
+function Lpair(item) {
+  if (!item) return "";
+  if (typeof item === "string") return item;
+  if (state.lang === "zh" && item.zh) return item.zh;
+  return item.en || "";
+}
+
+function t(key) {
+  const ui = (state.data && state.data.ui) || {};
+  return (ui[state.lang] && ui[state.lang][key]) || (ui.en && ui.en[key]) || key;
+}
+
 // ── Render: profile ─────────────────────────────────────────────────────────
 
 function renderProfile(p) {
-  document.title = `${p.name} · CV`;
-  document.getElementById("topbar-name").textContent = p.name;
-  document.getElementById("footer-name").textContent = p.name;
+  const lang = state.lang;
+  const displayName = lang === "zh" ? (p.nameZh || p.name) : p.name;
+  document.title = `${displayName} · ${t("docTitleSuffix")}`;
+  document.getElementById("topbar-name").textContent = displayName;
+  document.getElementById("footer-name").textContent = displayName;
 
-  // Show initials as fallback only if the avatar image is missing or fails.
+  // Avatar fallback to initials
   const avatar = document.getElementById("avatar");
   const avatarImg = document.getElementById("avatar-img");
+  // Clear any previously-injected initials before re-rendering
+  avatar.querySelectorAll(".avatar-initials").forEach(n => n.remove());
   const showInitials = () => {
     const initials = document.createElement("span");
     initials.className = "avatar-initials";
@@ -51,20 +90,16 @@ function renderProfile(p) {
     if (avatarImg.complete && avatarImg.naturalWidth === 0) showInitials();
   }
 
-  const heroZh = document.getElementById("hero-zh");
-  if (heroZh && p.nameZh) heroZh.textContent = p.nameZh;
-  document.getElementById("hero-name").textContent = p.name;
-  document.getElementById("hero-title").textContent = p.title;
+  document.getElementById("hero-name").textContent = displayName;
+  document.getElementById("hero-title").textContent = L(p, "title");
 
-  if (p.researchInterests) {
-    document.getElementById("hero-interests").textContent = p.researchInterests;
-  }
+  const interestsEl = document.getElementById("hero-interests");
+  if (interestsEl) interestsEl.textContent = L(p, "researchInterests");
 
   const affEl = document.getElementById("hero-affiliations");
   affEl.innerHTML = "";
-  (p.affiliations || []).forEach(a => {
-    affEl.append(el("li", {}, a));
-  });
+  const affs = lang === "zh" ? (p.affiliationsZh || p.affiliations || []) : (p.affiliations || []);
+  affs.forEach(a => affEl.append(el("li", {}, a)));
 
   const emailEl = document.getElementById("hero-email");
   emailEl.href = `mailto:${p.email}`;
@@ -77,12 +112,13 @@ function renderTimeline(containerId, items, type) {
   const wrap = document.getElementById(containerId);
   wrap.innerHTML = "";
   items.forEach(item => {
-    const primary = type === "edu" ? item.institution : item.org;
-    const secondary = type === "edu" ? item.degree : item.role;
+    const primary = type === "edu" ? L(item, "institution") : L(item, "org");
+    const secondary = type === "edu" ? L(item, "degree") : L(item, "role");
+    const period = L(item, "period");
 
     wrap.append(
       el("div", { class: "tl-item" },
-        el("time", { class: "tl-period" }, item.period),
+        el("time", { class: "tl-period" }, period),
         el("div", { class: "tl-body" },
           el("p", { class: "tl-primary" }, primary),
           el("p", { class: "tl-secondary" }, secondary)
@@ -92,15 +128,15 @@ function renderTimeline(containerId, items, type) {
   });
 }
 
-// ── Render: memberships ──────────────────────────────────────────────────────
+// ── Render: memberships ─────────────────────────────────────────────────────
 
 function renderMemberships(items) {
   const list = document.getElementById("memberships-list");
   list.innerHTML = "";
-  items.forEach(m => list.append(el("li", {}, m)));
+  items.forEach(m => list.append(el("li", {}, Lpair(m))));
 }
 
-// ── Render: projects ─────────────────────────────────────────────────────────
+// ── Render: projects ────────────────────────────────────────────────────────
 
 function renderProjects(projects) {
   renderProjectGroup("projects-pi", projects.pi || []);
@@ -111,27 +147,28 @@ function renderProjectGroup(containerId, items) {
   const wrap = document.getElementById(containerId);
   wrap.innerHTML = "";
   items.forEach(proj => {
-    const statusClass = proj.status?.toLowerCase() === "ongoing"
-      ? "badge-ongoing" : "badge-completed";
+    const isOngoing = (proj.status || "").toLowerCase() === "ongoing";
+    const statusClass = isOngoing ? "badge-ongoing" : "badge-completed";
+    const statusText = isOngoing ? t("statusOngoing") : t("statusCompleted");
 
     wrap.append(
       el("div", { class: "proj-card" },
-        el("p", { class: "proj-title" }, proj.title),
+        el("p", { class: "proj-title" }, L(proj, "title")),
         el("div", { class: "proj-meta" },
-          el("span", { class: "proj-funder" }, proj.funder),
+          el("span", { class: "proj-funder" }, L(proj, "funder")),
         ),
         el("div", { class: "proj-meta" },
           el("span", {}, proj.id),
           el("span", { class: "sep" }, "·"),
           el("span", {}, proj.period),
-          el("span", { class: `badge ${statusClass}` }, proj.status)
+          el("span", { class: `badge ${statusClass}` }, statusText)
         )
       )
     );
   });
 }
 
-// ── Render: publications ─────────────────────────────────────────────────────
+// ── Render: publications ────────────────────────────────────────────────────
 
 function renderPublications(pubs) {
   const list = document.getElementById("pub-english");
@@ -141,7 +178,7 @@ function renderPublications(pubs) {
   items.forEach((pub, i) => {
     const item = el("li", { class: `pub-item${i >= PUB_FOLD ? " hidden" : ""}` },
       el("span", { class: "pub-num" }),
-      buildPubBody(pub)
+      buildPubBody(pub, /*useZh=*/false)
     );
     list.append(item);
   });
@@ -149,11 +186,13 @@ function renderPublications(pubs) {
   const btn = document.getElementById("pub-toggle");
   if (items.length > PUB_FOLD) {
     btn.hidden = false;
-    btn.textContent = `Show all ${items.length} publications`;
+    btn.textContent = t("showMore").replace("{n}", items.length);
     btn.onclick = () => {
       list.querySelectorAll(".pub-item.hidden").forEach(li => li.classList.remove("hidden"));
       btn.hidden = true;
     };
+  } else {
+    btn.hidden = true;
   }
 
   const cnList = document.getElementById("pub-chinese");
@@ -162,15 +201,21 @@ function renderPublications(pubs) {
     cnList.append(
       el("li", { class: "pub-item" },
         el("span", { class: "pub-num" }),
-        buildPubBody(pub)
+        buildPubBody(pub, /*useZh=*/true)
       )
     );
   });
 }
 
-function buildPubBody(pub) {
+function buildPubBody(pub, useZhWhenAvailable) {
   const body = el("div", { class: "pub-body" });
-  body.append(el("p", { class: "pub-citation", html: pub.citation }));
+  // For Chinese papers in Chinese mode, prefer citationZh.
+  // For English papers, always show citation (English).
+  let citation = pub.citation;
+  if (useZhWhenAvailable && state.lang === "zh" && pub.citationZh) {
+    citation = pub.citationZh;
+  }
+  body.append(el("p", { class: "pub-citation", html: citation }));
 
   const links = [];
   if (pub.pubmed) {
@@ -199,7 +244,7 @@ function buildPubBody(pub) {
   return body;
 }
 
-// ── Render: patents ──────────────────────────────────────────────────────────
+// ── Render: patents ─────────────────────────────────────────────────────────
 
 function renderPatents(patents) {
   const wrap = document.getElementById("patents-list");
@@ -208,16 +253,58 @@ function renderPatents(patents) {
     wrap.append(
       el("div", { class: "patent-card" },
         el("div", {},
-          el("p", { class: "patent-title" }, p.title),
-          el("p", { class: "patent-meta" }, `Patent No. ${p.number}`)
+          el("p", { class: "patent-title" }, L(p, "title")),
+          el("p", { class: "patent-meta" }, `${t("patentNo")} ${p.number}`)
         ),
-        el("span", { class: "patent-role" }, p.role)
+        el("span", { class: "patent-role" }, L(p, "role"))
       )
     );
   });
 }
 
-// ── Navigation: active link on scroll, mobile menu ─────────────────────────
+// ── Apply UI labels (data-i18n / data-nav) ──────────────────────────────────
+
+function applyStaticI18n() {
+  // Sections / sub-headings / sidebar labels marked with data-i18n
+  document.querySelectorAll("[data-i18n]").forEach(node => {
+    const key = node.getAttribute("data-i18n");
+    node.textContent = t(key);
+  });
+  // Nav links
+  document.querySelectorAll("[data-nav]").forEach(node => {
+    const key = node.getAttribute("data-nav");
+    node.textContent = t(key);
+  });
+  // Language toggle button itself
+  const toggle = document.getElementById("lang-toggle");
+  const toggleText = document.getElementById("lang-toggle-text");
+  if (toggleText) toggleText.textContent = t("langSwitchTo");
+  if (toggle) {
+    toggle.setAttribute("aria-label", t("langSwitchAria"));
+    toggle.setAttribute("title", t("langSwitchAria"));
+  }
+  // Document <html lang="…"> so CSS font-family rule can take effect
+  document.documentElement.setAttribute("lang", state.lang);
+  // Mobile menu button label
+  const menuBtn = document.getElementById("menu-btn");
+  if (menuBtn) menuBtn.setAttribute("aria-label", t("menuLabel"));
+}
+
+// ── Main render ─────────────────────────────────────────────────────────────
+
+function renderAll() {
+  if (!state.data) return;
+  applyStaticI18n();
+  renderProfile(state.data.profile);
+  renderTimeline("education-list", state.data.education, "edu");
+  renderTimeline("experience-list", state.data.experience, "exp");
+  renderMemberships(state.data.memberships);
+  renderProjects(state.data.projects);
+  renderPublications(state.data.publications);
+  renderPatents(state.data.patents);
+}
+
+// ── Navigation: active link on scroll, mobile menu ──────────────────────────
 
 function initNav() {
   const topbar = document.getElementById("topbar");
@@ -256,7 +343,6 @@ function initNav() {
     });
   });
 
-  // Auto-close mobile menu if window resized to desktop
   window.addEventListener("resize", () => {
     if (window.innerWidth > 760) {
       mobileNav.hidden = true;
@@ -265,33 +351,40 @@ function initNav() {
   });
 }
 
-// ── Boot ─────────────────────────────────────────────────────────────────────
+function initLangToggle() {
+  const btn = document.getElementById("lang-toggle");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    state.lang = state.lang === "zh" ? "en" : "zh";
+    try { localStorage.setItem("cv-lang", state.lang); } catch (e) { /* ignore */ }
+    renderAll();
+  });
+}
+
+// ── Boot ────────────────────────────────────────────────────────────────────
 
 async function init() {
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // Load saved language preference, default English
   try {
-    // Data is loaded synchronously from js/data.js (window.CV_DATA)
-    // so the page works when opened directly via file:// (no server needed).
-    // If you prefer editing content.json instead, run a local server:
-    //   python3 -m http.server 8080
-    // and uncomment the fetch block below.
-    let data = window.CV_DATA;
+    const saved = localStorage.getItem("cv-lang");
+    if (saved === "zh" || saved === "en") state.lang = saved;
+  } catch (e) { /* localStorage may be blocked in file:// on some browsers */ }
 
+  try {
+    // Inline data first (works via file://), then fallback to fetch.
+    let data = window.CV_DATA;
     if (!data) {
       const res = await fetch("content.json");
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       data = await res.json();
     }
+    state.data = data;
 
-    renderProfile(data.profile);
-    renderTimeline("education-list", data.education, "edu");
-    renderTimeline("experience-list", data.experience, "exp");
-    renderMemberships(data.memberships);
-    renderProjects(data.projects);
-    renderPublications(data.publications);
-    renderPatents(data.patents);
+    renderAll();
     initNav();
+    initLangToggle();
   } catch (err) {
     console.error(err);
     document.getElementById("main").innerHTML =

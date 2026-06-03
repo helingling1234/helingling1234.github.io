@@ -17,26 +17,31 @@
     <div class="topbar-inner">
       <a href="#top" class="topbar-name" id="topbar-name"></a>
       <nav class="topbar-nav" aria-label="Page sections">
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#memberships">Memberships</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">Publications</a>
-        <a href="#patents">Patents</a>
+        <a href="#education" data-nav="navEducation">Education</a>
+        <a href="#experience" data-nav="navExperience">Experience</a>
+        <a href="#memberships" data-nav="navMemberships">Memberships</a>
+        <a href="#projects" data-nav="navProjects">Projects</a>
+        <a href="#publications" data-nav="navPublications">Publications</a>
+        <a href="#patents" data-nav="navPatents">Patents</a>
       </nav>
       <button class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
     <nav class="mobile-nav" id="mobile-nav" hidden>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#memberships">Memberships</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#patents">Patents</a>
+      <a href="#education" data-nav="navEducation">Education</a>
+      <a href="#experience" data-nav="navExperience">Experience</a>
+      <a href="#memberships" data-nav="navMemberships">Memberships</a>
+      <a href="#projects" data-nav="navProjects">Projects</a>
+      <a href="#publications" data-nav="navPublications">Publications</a>
+      <a href="#patents" data-nav="navPatents">Patents</a>
     </nav>
   </header>
+
+  <!-- Floating language toggle (top-right) -->
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language" title="Switch language">
+    <span id="lang-toggle-text">中文</span>
+  </button>
 
   <span id="top"></span>
 
@@ -55,10 +60,10 @@
         <div class="sidebar-divider"></div>
         <ul class="sidebar-affiliations" id="hero-affiliations"></ul>
         <div class="sidebar-divider"></div>
-        <p class="sidebar-label">Research Interests</p>
+        <p class="sidebar-label" data-i18n="labelResearch">Research Interests</p>
         <p class="sidebar-interests" id="hero-interests"></p>
         <div class="sidebar-divider"></div>
-        <p class="sidebar-label">Contact</p>
+        <p class="sidebar-label" data-i18n="labelContact">Contact</p>
         <a class="sidebar-email" id="hero-email" href="#"></a>
       </div>
     </aside>
@@ -68,44 +73,44 @@
 
       <section class="section" id="education">
         <p class="section-num">01</p>
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title" data-i18n="sectionEducation">Education</h2>
         <div class="timeline" id="education-list"></div>
       </section>
 
       <section class="section" id="experience">
         <p class="section-num">02</p>
-        <h2 class="section-title">Professional Experience</h2>
+        <h2 class="section-title" data-i18n="sectionExperience">Professional Experience</h2>
         <div class="timeline" id="experience-list"></div>
       </section>
 
       <section class="section" id="memberships">
         <p class="section-num">03</p>
-        <h2 class="section-title">Academic Memberships</h2>
+        <h2 class="section-title" data-i18n="sectionMemberships">Academic Memberships</h2>
         <ul class="membership-list" id="memberships-list"></ul>
       </section>
 
       <section class="section" id="projects">
         <p class="section-num">04</p>
-        <h2 class="section-title">Research Projects</h2>
-        <h3 class="sub-heading">As Principal Investigator</h3>
+        <h2 class="section-title" data-i18n="sectionProjects">Research Projects</h2>
+        <h3 class="sub-heading" data-i18n="subPI">As Principal Investigator</h3>
         <div class="project-grid" id="projects-pi"></div>
-        <h3 class="sub-heading">As Co-Investigator</h3>
+        <h3 class="sub-heading" data-i18n="subCo">As Co-Investigator</h3>
         <div class="project-grid" id="projects-co"></div>
       </section>
 
       <section class="section" id="publications">
         <p class="section-num">05</p>
-        <h2 class="section-title">Selected Publications</h2>
-        <h3 class="sub-heading">English</h3>
+        <h2 class="section-title" data-i18n="sectionPublications">Selected Publications</h2>
+        <h3 class="sub-heading" data-i18n="subEnglish">English</h3>
         <ol class="pub-list" id="pub-english"></ol>
         <button class="btn-more" id="pub-toggle" hidden></button>
-        <h3 class="sub-heading" style="margin-top:2.5rem">Chinese (translated titles)</h3>
+        <h3 class="sub-heading" style="margin-top:2.5rem" data-i18n="subChinese">Chinese (translated titles)</h3>
         <ol class="pub-list" id="pub-chinese"></ol>
       </section>
 
       <section class="section" id="patents">
         <p class="section-num">06</p>
-        <h2 class="section-title">Patents</h2>
+        <h2 class="section-title" data-i18n="sectionPatents">Patents</h2>
         <div class="patent-list" id="patents-list"></div>
       </section>
 

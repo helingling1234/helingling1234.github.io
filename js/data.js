@@ -1,82 +1,194 @@
 window.CV_DATA = {
+  "ui": {
+    "en": {
+      "docTitleSuffix": "CV",
+      "navEducation": "Education",
+      "navExperience": "Experience",
+      "navMemberships": "Memberships",
+      "navProjects": "Projects",
+      "navPublications": "Publications",
+      "navPatents": "Patents",
+      "sectionEducation": "Education",
+      "sectionExperience": "Professional Experience",
+      "sectionMemberships": "Academic Memberships",
+      "sectionProjects": "Research Projects",
+      "sectionPublications": "Selected Publications",
+      "sectionPatents": "Patents",
+      "subPI": "As Principal Investigator",
+      "subCo": "As Co-Investigator",
+      "subEnglish": "English",
+      "subChinese": "Chinese (translated titles)",
+      "labelResearch": "Research Interests",
+      "labelContact": "Contact",
+      "showMore": "Show all {n} publications",
+      "patentNo": "Patent No.",
+      "statusOngoing": "Ongoing",
+      "statusCompleted": "Completed",
+      "menuLabel": "Toggle menu",
+      "langSwitchTo": "中文",
+      "langSwitchAria": "切换到中文"
+    },
+    "zh": {
+      "docTitleSuffix": "个人简历",
+      "navEducation": "教育经历",
+      "navExperience": "工作经历",
+      "navMemberships": "学术任职",
+      "navProjects": "科研经历",
+      "navPublications": "代表性论著",
+      "navPatents": "专利",
+      "sectionEducation": "教育经历",
+      "sectionExperience": "工作经历",
+      "sectionMemberships": "学术任职",
+      "sectionProjects": "科研经历",
+      "sectionPublications": "代表性论著",
+      "sectionPatents": "专利",
+      "subPI": "主持课题",
+      "subCo": "参与课题",
+      "subEnglish": "英文论文（SCI）",
+      "subChinese": "中文核心期刊",
+      "labelResearch": "研究方向",
+      "labelContact": "联系方式",
+      "showMore": "查看全部 {n} 篇",
+      "patentNo": "专利号",
+      "statusOngoing": "在研",
+      "statusCompleted": "结题",
+      "menuLabel": "菜单",
+      "langSwitchTo": "EN",
+      "langSwitchAria": "Switch to English"
+    }
+  },
   "profile": {
     "name": "Lingling He",
     "nameZh": "何玲玲",
     "title": "Associate Chief Physician · MD, PhD",
+    "titleZh": "副主任医师 · 医学博士",
     "email": "helingling@mail.ccmu.edu.cn",
     "affiliations": [
       "Department of Gastroenterology, Beijing Ditan Hospital, Capital Medical University, Beijing, China",
       "Visiting Scholar, Icahn School of Medicine at Mount Sinai, New York, USA"
     ],
-    "researchInterests": "Gastroenterology · Liver fibrosis · Portal hypertension · Glycosylation biology · Artificial Intelligence"
+    "affiliationsZh": [
+      "首都医科大学附属北京地坛医院 消化内科",
+      "美国西奈山伊坎医学院 访问学者"
+    ],
+    "researchInterests": "Gastroenterology · Liver fibrosis · Portal hypertension · Glycosylation biology · Artificial Intelligence",
+    "researchInterestsZh": "消化系统疾病 · 肝纤维化 · 门静脉高压 · 糖基化生物学 · 人工智能"
   },
   "education": [
     {
       "institution": "Capital Medical University",
+      "institutionZh": "首都医科大学",
       "degree": "PhD in Medicine",
-      "period": "2016 – 2019"
+      "degreeZh": "医学博士",
+      "period": "2016 – 2019",
+      "periodZh": "2016.09 – 2019.07"
     },
     {
       "institution": "Capital Medical University",
+      "institutionZh": "首都医科大学",
       "degree": "MS in Medicine",
-      "period": "2013 – 2016"
+      "degreeZh": "医学硕士",
+      "period": "2013 – 2016",
+      "periodZh": "2013.09 – 2016.07"
     },
     {
       "institution": "Xiamen University",
+      "institutionZh": "厦门大学",
       "degree": "BS in Medicine",
-      "period": "2008 – 2013"
+      "degreeZh": "医学学士",
+      "period": "2008 – 2013",
+      "periodZh": "2008.09 – 2013.07"
     }
   ],
   "experience": [
     {
       "org": "Icahn School of Medicine at Mount Sinai, USA",
+      "orgZh": "美国西奈山伊坎医学院",
       "role": "Visiting Scholar",
-      "period": "Sep 2025 – Present"
+      "roleZh": "访问学者",
+      "period": "Sep 2025 – Present",
+      "periodZh": "2025.09 – 至今"
     },
     {
       "org": "Beijing Ditan Hospital, Capital Medical University",
+      "orgZh": "首都医科大学附属北京地坛医院 消化内科",
       "role": "Associate Chief Physician",
-      "period": "Oct 2025 – Present"
+      "roleZh": "副主任医师",
+      "period": "Oct 2025 – Present",
+      "periodZh": "2025.10 – 至今"
     },
     {
       "org": "Beijing Ditan Hospital, Capital Medical University",
+      "orgZh": "首都医科大学附属北京地坛医院 消化内科",
       "role": "Attending Physician",
-      "period": "Nov 2021 – Oct 2025"
+      "roleZh": "主治医师",
+      "period": "Nov 2021 – Oct 2025",
+      "periodZh": "2021.11 – 2025.10"
     },
     {
       "org": "Beijing Ditan Hospital, Capital Medical University",
+      "orgZh": "首都医科大学附属北京地坛医院 消化内科",
       "role": "Resident Physician",
-      "period": "Aug 2019 – Nov 2021"
+      "roleZh": "住院医师",
+      "period": "Aug 2019 – Nov 2021",
+      "periodZh": "2019.08 – 2021.11"
     }
   ],
   "memberships": [
-    "Committee Member, Branch of Thrombosis and Hemostasis, Beijing Association of Integrative Medicine",
-    "Committee Member, Branch of Integrative Gastroenterology, Beijing Association of Integrative Medicine",
-    "Committee Member, Branch of Gastroenterology, China-Japan Medical Science and Technology Exchange Association",
-    "Committee Member, Branch of Digestive Endoscopy, Beijing Translational Medicine Association",
-    "Committee Member, Professional Committee on Precision Diagnosis and Treatment of Gastrointestinal Diseases, Beijing Translational Medicine Association",
-    "Committee Member, Professional Committee on Liver Diseases, Chinese Research Hospital Association",
-    "Committee Member, Professional Committee on Microecology, Beijing Preventive Medicine Association"
+    {
+      "en": "Committee Member, Branch of Thrombosis and Hemostasis, Beijing Association of Integrative Medicine",
+      "zh": "北京整合医学学会血栓与止血分会 委员"
+    },
+    {
+      "en": "Committee Member, Branch of Integrative Gastroenterology, Beijing Association of Integrative Medicine",
+      "zh": "北京整合医学学会整合消化分会 委员"
+    },
+    {
+      "en": "Committee Member, Branch of Gastroenterology, China-Japan Medical Science and Technology Exchange Association",
+      "zh": "中日医学科技交流协会消化病学分会 委员"
+    },
+    {
+      "en": "Committee Member, Branch of Digestive Endoscopy, Beijing Translational Medicine Association",
+      "zh": "北京转化医学学会消化内镜分会 委员"
+    },
+    {
+      "en": "Committee Member, Professional Committee on Precision Diagnosis and Treatment of Gastrointestinal Diseases, Beijing Translational Medicine Association",
+      "zh": "北京转化医学学会胃肠疾病精准诊疗专业委员会 委员"
+    },
+    {
+      "en": "Committee Member, Professional Committee on Liver Diseases, Chinese Research Hospital Association",
+      "zh": "中国研究型医院学会肝病（中西医结合）专业委员会 委员"
+    },
+    {
+      "en": "Committee Member, Professional Committee on Microecology, Beijing Preventive Medicine Association",
+      "zh": "北京预防医学会微生态专业委员会 委员"
+    }
   ],
   "projects": {
     "pi": [
       {
         "title": "Risk Evaluation of Portal Vein Thrombosis after Different Endoscopic Treatments in Cirrhotic Patients with Gastroesophageal Varices",
+        "titleZh": "肝硬化伴食管胃底静脉曲张患者经不同内镜治疗后 PVT 发生风险评价研究",
         "funder": "Beijing Municipal Hospital Administration \"Qingmiao\" Young Talent Program",
+        "funderZh": "北京市医院管理中心\"青苗\"计划",
         "id": "QML20231805",
         "period": "2023.01 – 2024.12",
         "status": "Completed"
       },
       {
         "title": "Glcα1,2Galβ1-Glycosylation Modification Regulates the TGF-β1/Smad3 Signaling Pathway and Its Role in Collagen Folding and Secretion in Hepatic Stellate Cells",
+        "titleZh": "Glcα1,2Galβ1-糖基化修饰调节 TGF-β1/Smad3 信号通路影响 HSC 胶原蛋白折叠分泌的作用机制研究",
         "funder": "Research Cultivation Fund, Capital Medical University",
+        "funderZh": "首都医科大学科研培育基金",
         "id": "PYZ22137",
         "period": "2023.01 – 2023.12",
         "status": "Completed"
       },
       {
         "title": "Is Glcα1,2Galβ1-Glycosylation a Quality-Control Checkpoint for Collagen Folding and Secretion in HSCs?",
+        "titleZh": "Glcα1,2Galβ1-糖基化修饰：HSC 胶原蛋白折叠分泌的质控校验点？",
         "funder": "Research Cultivation Fund, Capital Medical University",
+        "funderZh": "首都医科大学科研培育基金",
         "id": "PYZ20031",
         "period": "2021.01 – 2021.12",
         "status": "Completed"
@@ -85,63 +197,81 @@ window.CV_DATA = {
     "coInvestigator": [
       {
         "title": "Natural Compounds Inhibiting Glcα1,2Galβ1-Glycosylation of Collagen — A Novel Therapeutic Target for Liver Fibrosis?",
+        "titleZh": "天然药物抑制胶原的 Glcα1,2Galβ1-糖基化修饰：肝纤维化治疗的新靶点？",
         "funder": "Beijing Natural Science Foundation",
+        "funderZh": "北京市自然科学基金",
         "id": "7252068",
         "period": "2025.01 – 2027.12",
         "status": "Ongoing"
       },
       {
         "title": "Impact of Comorbid MAFLD on HBsAg Clearance during Antiviral Therapy in Chronic Hepatitis B and Development of a Prediction Algorithm",
+        "titleZh": "合并代谢相关脂肪性肝病对慢性乙型肝炎抗病毒治疗乙肝表面抗原清除的影响及预测算法建立",
         "funder": "Joint Laboratory of HBV Infection, Clinical Cure and Immunity, CMU",
+        "funderZh": "首医 HBV 感染、临床治愈和免疫联合实验室",
         "id": "JL202508",
         "period": "2025.01 – 2026.12",
         "status": "Ongoing"
       },
       {
         "title": "Efficacy of EUS Combined with CT-Guided Tissue-Adhesive Selective Embolization of Esophageal Lateral Branch Veins",
+        "titleZh": "超声内镜联合 CT 引导下食管外侧支静脉穿刺组织胶选择性封闭术的疗效评价",
         "funder": "Excellent Clinical Research Program for Research Wards",
+        "funderZh": "研究型病房卓越临床研究计划",
         "id": "BRWEP2024W102170111",
         "period": "2024.11 – 2027.10",
         "status": "Ongoing"
       },
       {
         "title": "Diagnostic Value and Pathogenicity of Escherichia coli Strain NF73-1 in Non-Alcoholic Fatty Liver Disease",
+        "titleZh": "大肠埃希菌株 E. coli NF73-1 对非酒精性脂肪性肝病的诊断及致病性的研究",
         "funder": "Capital's Funds for Health Improvement and Research, Key Project",
+        "funderZh": "首都卫生发展科研专项重点项目",
         "id": "Capital 2024-1-4081",
         "period": "2024.01 – 2026.12",
         "status": "Ongoing"
       },
       {
         "title": "Glcα1,2Galβ1-Glycosylation — A Key Regulator of IL-2/IL-2R-Mediated JAK-STAT Pathway Activation?",
+        "titleZh": "Glcα1,2Galβ1-糖基化修饰：IL-2/IL-2R 介导 JAK-STAT 信号途径激活的关键？",
         "funder": "National Natural Science Foundation of China",
+        "funderZh": "国家自然科学基金面上项目",
         "id": "82170541",
         "period": "2022.01 – 2025.12",
         "status": "Ongoing"
       },
       {
         "title": "Effects of Glcα1,2Galβ1-Glycosylation on Proliferation of CD4+ T-Cell Subsets and Its Role in Liver Injury",
+        "titleZh": "GlCα1,2Galβ1 糖基化修饰对 CD4+ T 细胞亚群增殖的影响及在肝损伤中的作用",
         "funder": "Beijing Natural Science Foundation",
+        "funderZh": "北京市自然科学基金",
         "id": "7202071",
         "period": "2020.01 – 2022.12",
         "status": "Completed"
       },
       {
         "title": "Establishment and Application of a Risk-Evaluation Algorithm for Gastroesophageal Variceal Bleeding",
+        "titleZh": "食管胃静脉曲张出血风险评价算法的建立及应用",
         "funder": "Beijing Municipal Hospital Administration Gastroenterology Collaborative Development Special Project",
+        "funderZh": "北京市医院管理中心消化内科学科协同发展中心专项",
         "id": "XXZ04",
         "period": "2018.06 – 2022.06",
         "status": "Completed"
       },
       {
         "title": "Clinical Study of Yinqi Sanhuang Jiedu Decoction in the Treatment of Chronic Hepatitis B",
+        "titleZh": "茵芪三黄解毒汤治疗慢性乙型病毒性肝炎的临床研究",
         "funder": "National Key R&D Program of China",
+        "funderZh": "国家重点研发计划项目子课题",
         "id": "2018YFC1705701",
         "period": "2018.12 – 2021.12",
         "status": "Completed"
       },
       {
         "title": "Clinical Study of Yinqi Sanhuang Jiedu Decoction in the Treatment of HBV-Related Compensated Cirrhosis",
+        "titleZh": "茵芪三黄解毒汤治疗乙肝相关性代偿期肝硬化的临床研究",
         "funder": "National Key R&D Program of China",
+        "funderZh": "国家重点研发计划项目子课题",
         "id": "2018YFC1705702",
         "period": "2018.12 – 2021.12",
         "status": "Completed"
@@ -151,7 +281,7 @@ window.CV_DATA = {
   "publications": {
     "english": [
       {
-        "citation": "Wang S, <b>He L</b>, Xiao F, Gao M, Wei H, Yang J, Shu Y, Zhang F, Ye X, Li P, Hao X, Zhou X, Wei H. Upregulation of GLT25D1 in Hepatic Stellate Cells Promotes Liver Fibrosis via the TGF-β1/SMAD3 Pathway In Vivo and In vitro. <i>J Clin Transl Hepatol.</i> 2023 Feb 28;11(1):1-14.",
+        "citation": "Wang S, <b>He L</b>, Xiao F, Gao M, Wei H, Yang J, Shu Y, Zhang F, Ye X, Li P, Hao X, Zhou X, Wei H. Upregulation of GLT25D1 in Hepatic Stellate Cells Promotes Liver Fibrosis via the TGF-β1/SMAD3 Pathway In Vivo and In vitro. <i>J Clin Transl Hepatol.</i> 2023 Feb 28;11(1):1-14.",
         "doi": "10.14218/JCTH.2022.00005",
         "pubmed": "https://pubmed.ncbi.nlm.nih.gov/?term=10.14218/JCTH.2022.00005%5Bdoi%5D"
       },
@@ -236,7 +366,7 @@ window.CV_DATA = {
         "pubmed": "https://pubmed.ncbi.nlm.nih.gov/?term=10.1016/j.tox.2020.152411%5Bdoi%5D"
       },
       {
-        "citation": "Wang Z, Tan W, Xiong H, Huang J, Wei H, Li M, Luo J, An W, <b>He L</b>, Ma J, Xiao F, Wei H. Impact of Helicobacter pylori infection on iron deficiency anemia in children: a systematic review and meta-analysis with early intervention implications. <i>Front Microbiol.</i> 2025 Jun 19;16:1541011.",
+        "citation": "Wang Z, Tan W, Xiong H, Huang J, Wei H, Li M, Luo J, An W, <b>He L</b>, Ma J, Xiao F, Wei H. Impact of Helicobacter pylori infection on iron deficiency anemia in children: a systematic review and meta-analysis with early intervention implications. <i>Front Microbiol.</i> 2025 Jun 19;16:1541011.",
         "doi": "10.3389/fmicb.2025.1541011",
         "pubmed": "https://pubmed.ncbi.nlm.nih.gov/?term=10.3389/fmicb.2025.1541011%5Bdoi%5D"
       },
@@ -251,7 +381,7 @@ window.CV_DATA = {
         "pubmed": "https://pubmed.ncbi.nlm.nih.gov/?term=10.1016/j.aohep.2024.101589%5Bdoi%5D"
       },
       {
-        "citation": "Yu Z, Luo J, An W, Wei H, Li M, <b>He L</b>, Xiao F, Wei H. Migrasome Marker Epidermal Growth Factor Domain-Specific O-GlcNAc Transferase: Pan-Cancer Angiogenesis Biomarker and the Potential Role of circ_0058189/miR-130a-3p/EOGT Axis in Hepatocellular Carcinoma Progression and Sorafenib Resistance. <i>Biomedicines.</i> 2025 Mar 22;13(4):773.",
+        "citation": "Yu Z, Luo J, An W, Wei H, Li M, <b>He L</b>, Xiao F, Wei H. Migrasome Marker Epidermal Growth Factor Domain-Specific O-GlcNAc Transferase: Pan-Cancer Angiogenesis Biomarker and the Potential Role of circ_0058189/miR-130a-3p/EOGT Axis in Hepatocellular Carcinoma Progression and Sorafenib Resistance. <i>Biomedicines.</i> 2025 Mar 22;13(4):773.",
         "doi": "10.3390/biomedicines13040773",
         "pubmed": "https://pubmed.ncbi.nlm.nih.gov/?term=10.3390/biomedicines13040773%5Bdoi%5D"
       },
@@ -279,36 +409,55 @@ window.CV_DATA = {
     "chinese": [
       {
         "citation": "<b>He LL</b>, Lin YJ, Ye XH, et al. Efficacy of EUS-guided selective embolization of esophageal lateral branch veins with tissue adhesive for cirrhosis with esophageal varices (with video). <i>Chin J Dig Endosc.</i> 2025, 42(7): 565-568.",
+        "citationZh": "<b>何玲玲</b>, 林毅军, 叶小慧, 等. 超声内镜引导下食管外侧支静脉穿刺组织胶选择性封闭术治疗肝硬化伴食管静脉曲张的有效性（含视频）[J]. <i>中华消化内镜杂志</i>, 2025, 42(7): 565-568.",
         "doi": "10.3760/cma.j.cn321463-20240624-00212",
         "pubmed": null
       },
       {
         "citation": "<b>He LL</b>, Ye XH, Zhu L, et al. Factors influencing spontaneous recanalization of portal vein thrombosis in HBV-related cirrhosis with gastroesophageal varices. <i>Chin J Hepatol (Electronic Edition).</i> 2025, 17(2): 55-60.",
+        "citationZh": "<b>何玲玲</b>, 叶小慧, 朱璐, 等. 乙型肝炎肝硬化食管胃静脉曲张合并门静脉血栓自发再通的影响因素 [J]. <i>中国肝脏病杂志（电子版）</i>, 2025, 17(2): 55-60.",
         "doi": "10.3969/j.issn.1674-7380.2025.02.010",
         "pubmed": null
       },
       {
         "citation": "Zhang C, Zhu PH, <b>He LL</b>. Research progress on the correlation between metabolic-associated fatty liver disease and cardiovascular-disease risk. <i>Chin J Hepatol (Electronic Edition).</i> 2025, 17(1): 12-18.",
+        "citationZh": "张成, 朱平辉, <b>何玲玲</b>. 代谢相关脂肪性肝病与心血管疾病风险相关性研究现状 [J]. <i>中国肝脏病杂志（电子版）</i>, 2025, 17(1): 12-18.",
         "doi": "10.3969/j.issn.1674-7380.2025.01.003",
         "pubmed": null
       },
       {
         "citation": "Liang XX, <b>He LL</b>, Yang JR, et al. Risk factors for rebleeding after endoscopic treatment in hepatocellular carcinoma patients with portal-vein tumor thrombus and gastroesophageal variceal bleeding. <i>J Clin Hepatol.</i> 2022, 38(10): 2290-2295.",
+        "citationZh": "梁秀霞, <b>何玲玲</b>, 杨君茹, 等. 内镜治疗肝细胞癌合并门静脉癌栓患者食管胃静脉曲张出血后再出血的危险因素分析 [J]. <i>临床肝胆病杂志</i>, 2022, 38(10): 2290-2295.",
         "doi": "10.3969/j.issn.1001-5256.2022.10.017",
         "pubmed": null
       },
       {
         "citation": "<b>He LL</b>, Zhang C, Zhou RR, et al. The role of glycosylation modification in enveloped-virus infection. <i>Chin J Exp Clin Infect Dis (Electronic Edition).</i> 2021, 15(1): 1-6.",
+        "citationZh": "<b>何玲玲</b>, 张成, 周蓉蓉, 等. 糖基化修饰在包膜病毒感染过程中的作用 [J]. <i>中华实验和临床感染病杂志（电子版）</i>, 2021, 15(1): 1-6.",
         "doi": "10.3877/cma.j.issn.1674-1358.2021.01.001",
         "pubmed": null
       },
       {
         "citation": "<b>He LL</b>, Zhang C, Zhou RR, et al. Clinical evaluation and pharmacological treatment of refractory constipation. <i>Chin J Gastroenterol.</i> 2021, 26(3): 186-189.",
+        "citationZh": "<b>何玲玲</b>, 张成, 周蓉蓉, 等. 难治性便秘的临床评估和药物治疗 [J]. <i>胃肠病学</i>, 2021, 26(3): 186-189.",
         "doi": "10.3969/j.issn.1008-7125.2021.03.012",
         "pubmed": null
       },
       {
+        "citation": "<b>He LL</b>, Zhao YL, Du LL, et al. Overview of mechanisms by which Fuzheng formulas regulate the tumor microenvironment in primary liver cancer. <i>J Tradit Chin Med.</i> 2015, 56(20): 1790-1792.",
+        "citationZh": "<b>何玲玲</b>, 赵亚林, 杜林林, 等. 扶正方药调节原发性肝癌肿瘤微环境作用机制研究概述 [J]. <i>中医杂志</i>, 2015, 56(20): 1790-1792.",
+        "doi": "10.13288/j.11-2166/r.2015.20.020",
+        "pubmed": null
+      },
+      {
+        "citation": "<b>He LL</b>, Zhao YL, Du LL, et al. Treatment of primary liver cancer with the Yi-Qi Yang-Yin Fu-Zheng method. <i>Acta Chin Med.</i> 2015, (7): 931-933.",
+        "citationZh": "<b>何玲玲</b>, 赵亚林, 杜林林, 等. 益气养阴扶正法治疗原发性肝癌 [J]. <i>中医学报</i>, 2015, (7): 931-933.",
+        "doi": "10.16368/j.issn.1674-8999.2015.07.330",
+        "pubmed": null
+      },
+      {
         "citation": "<b>He LL</b>, Zhao YL, Du LL, et al. Pathological and imaging manifestations of hepatic nodular lesions. <i>J Clin Hepatol.</i> 2015, 31(9): 1547-1550.",
+        "citationZh": "<b>何玲玲</b>, 赵亚林, 杜林林, 等. 肝结节性病变的病理和影像学表现 [J]. <i>临床肝胆病杂志</i>, 2015, 31(9): 1547-1550.",
         "doi": "10.3969/j.issn.1001-5256.2015.09.047",
         "pubmed": null
       }
@@ -317,13 +466,17 @@ window.CV_DATA = {
   "patents": [
     {
       "title": "Application of a small-molecule compound in the preparation of drugs against hepatic injury or hepatic fibrosis",
+      "titleZh": "一种小分子化合物在制备抗肝损伤或抗肝纤维化药物中的应用",
       "number": "202510020241.0",
-      "role": "First Inventor"
+      "role": "First Inventor",
+      "roleZh": "第一发明人"
     },
     {
       "title": "A system for determining the one-year postoperative recurrence risk of single HBV-related primary small hepatocellular carcinoma",
+      "titleZh": "一种确定单发的 HBV 相关原发性小肝癌术后 1 年内复发风险的系统",
       "number": "ZL201810226198.3",
-      "role": "Second Inventor"
+      "role": "Second Inventor",
+      "roleZh": "第二发明人"
     }
   ]
 };
