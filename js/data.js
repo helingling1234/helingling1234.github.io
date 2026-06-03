@@ -8,7 +8,7 @@ window.CV_DATA = {
       "Department of Gastroenterology, Beijing Ditan Hospital, Capital Medical University, Beijing, China",
       "Visiting Scholar, Icahn School of Medicine at Mount Sinai, New York, USA"
     ],
-    "researchInterests": "Gastroenterology · Liver fibrosis · Portal hypertension · Glycosylation biology"
+    "researchInterests": "Gastroenterology · Liver fibrosis · Portal hypertension · Glycosylation biology · Artificial Intelligence"
   },
   "education": [
     {
