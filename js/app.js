@@ -9,7 +9,7 @@
  *   - the floating button toggles, then renderAll() re-renders.
  */
 
-const PUB_FOLD = 8; // English publications visible before "Show more"
+// Folding disabled: all publications shown by default.
 
 // ── Global state ───────────────────────────────────────────────────────────
 const state = {
@@ -175,25 +175,17 @@ function renderPublications(pubs) {
   list.innerHTML = "";
   const items = pubs.english || [];
 
-  items.forEach((pub, i) => {
-    const item = el("li", { class: `pub-item${i >= PUB_FOLD ? " hidden" : ""}` },
+  items.forEach(pub => {
+    const item = el("li", { class: "pub-item" },
       el("span", { class: "pub-num" }),
       buildPubBody(pub, /*useZh=*/false)
     );
     list.append(item);
   });
 
+  // Folding disabled: hide the toggle button permanently.
   const btn = document.getElementById("pub-toggle");
-  if (items.length > PUB_FOLD) {
-    btn.hidden = false;
-    btn.textContent = t("showMore").replace("{n}", items.length);
-    btn.onclick = () => {
-      list.querySelectorAll(".pub-item.hidden").forEach(li => li.classList.remove("hidden"));
-      btn.hidden = true;
-    };
-  } else {
-    btn.hidden = true;
-  }
+  if (btn) btn.hidden = true;
 
   const cnList = document.getElementById("pub-chinese");
   cnList.innerHTML = "";
